@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/signup.css">
+    <script src="/js/signup.js" defer></script>
+</head>
+<body>
+    <form action="/signup" method="POST" id="signupForm" onsubmit="return validatePassword()">
+        <h2>Sign Up</h2>
+        <div class="name-fields">
+            <div>
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+        </div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password</label>
+        <div class="password-container">
+            <input type="password" id="password" name="password" required>
+            <span class="password-toggle" id="password-toggle">&#128065;</span>
+        </div>
+        <label for="confirm_password">Confirm Password</label>
+        <div class="password-container">
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <span class="password-toggle" id="confirm-password-toggle">&#128065;</span>
+        </div>
+        <input type="submit" value="Sign Up">
+        <div id="error-msg" class="error-msg"></div>
+        <div class="login-link">
+            <p>Already have an account? <a href="/">Login</a></p>
+        </div>
+    </form>
+     <!-- Popup message box -->
+     <div class="message-box" id="messageBox">
+        <div class="message-content">
+            <p id="messageText"></p>
+            <button onclick="redirectToLogin()">OK</button>
+        </div>
+    </div>
+</body>
+</html>
