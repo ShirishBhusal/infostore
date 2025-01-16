@@ -8,27 +8,44 @@ const dotenv = require('dotenv');
 // Load environment variables
 dotenv.config();
 
+// User model and routes
 const User = require('./models/user');
 const customerRoutes = require('./routes/customerRoutes');
 const authRoutes = require('./routes/authRoutes');
 const routes = require('./routes/index');
 
+// MongoDB connection
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = process.env.MONGO_URI; // Load your MongoDB URI from environment variable
+
+// Create a MongoClient with MongoClientOptions to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function connectDB() {
+  try {
+    // Connect to MongoDB
+    await client.connect();
+    // Send a ping to confirm the connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+  }
+}
+
+// Call the connectDB function to establish the connection
+connectDB();
+
+// Express app setup
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI;
 const SESSION_SECRET = process.env.SESSION_SECRET;
-
-// Connect to MongoDB
-mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => {
-    console.log('Connected to database');
-})
-.catch((error) => {
-    console.error('Error connecting to database:', error);
-});
 
 // Middleware setup
 app.use(express.static(path.join(__dirname, 'public')));
@@ -38,7 +55,7 @@ app.use(session({
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: MONGO_URI })
+    store: MongoStore.create({ mongoUrl: uri })
 }));
 
 // View engine setup
@@ -52,5 +69,5 @@ app.use('/', authRoutes);
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
