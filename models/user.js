@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
+
 // Connect to MongoDB using the environment variable
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log("Database connected successfully"))
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("Database connected successfully"))
   .catch(err => console.error("Error connecting to database:", err.message));
 
 // Define user schema
