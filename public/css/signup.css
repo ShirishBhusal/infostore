@@ -1,126 +1,138 @@
-/* signup.css */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background-image: url("https://www.sss-solutions.org/wp-content/uploads/2018/01/1116146294-login-page-background-image-112.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    color: #333;
 }
 
-form {
-    background: #ffffff;
-    padding: 35px;
-    background-color: rgba(255, 255, 255, 0.8); /* White with 60% opacity */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    text-align: center; /* Center align the content */
+/* Signup Container */
+.signup-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Adjusted for mobile */
+    max-width: 400px; /* Reduced max-width for a smaller container */
+    padding: 25px; /* Reduced padding for a more compact look */
+    text-align: center;
+    backdrop-filter: blur(10px); /* Blur effect for modern look */
+    margin: 20px; /* Added margin for better spacing */
 }
 
+/* Form Styles */
 h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: calc(85% - 20px);
-    padding: 8px 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 80%;
-    padding: 10px;
-    background-color: #5cb85c;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #4cae4c;
-}
-
-.error-msg {
-    color: red;
-    margin-top: 5px; /* Add margin to separate from other elements */
-}
-
-.login-link {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.login-link a {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
     color: #007bff;
-    text-decoration: none;
 }
 
-.login-link a:hover {
-    text-decoration: underline;
+.form-group {
+    margin-bottom: 20px; /* Increased spacing between form groups */
+    text-align: left;
 }
 
-/* Styles for aligning first name and last name fields in the same line */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group label i {
+    margin-right: 10px; /* Space between icon and text */
+    color: #007bff; /* Icon color */
+}
+
+.form-group input {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Name Fields */
 .name-fields {
     display: flex;
-    justify-content: center; /* Center align the name fields */
-    margin-bottom: 10px;
+    gap: 10px; /* Space between first name and last name fields */
 }
 
-.name-fields input[type="text"] {
-    width: calc(90% - 10px);
+.name-fields .form-group {
+    flex: 1; /* Equal width for both fields */
 }
 
+/* Password Container */
 .password-container {
     position: relative;
 }
 
 .password-toggle {
     position: absolute;
-    right: 5px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #ccc;
+    color: #777;
+    font-size: 18px;
 }
 
 .password-toggle:hover {
     color: #333;
 }
 
-@media (max-width: 400px) {
-    .name-fields {
-        flex-direction: column;
-    }
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+}
 
-    .name-fields input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+/* Error Message */
+.error-msg {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 
+.login-link a:hover {
+    text-decoration: underline;
+}
 
-  /* Centering the message box */
-  .message-box {
+/* Message Box */
+.message-box {
     display: none;
     justify-content: center;
     align-items: center;
@@ -144,4 +156,44 @@ input[type="submit"]:hover {
 
 .message-content p {
     margin-bottom: 10px;
+}
+
+.message-content button {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.message-content button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 20px;
+        width: 90%; /* Adjusted for mobile */
+        margin: 10px; /* Smaller margin for mobile */
+    }
+
+    .name-fields {
+        flex-direction: column; /* Stack first name and last name fields vertically on mobile */
+    }
+
+    .form-group input {
+        padding: 10px; /* Smaller padding for mobile */
+    }
+
+    button[type="submit"] {
+        padding: 10px; /* Smaller padding for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .login-link {
+        font-size: 13px; /* Smaller font size for mobile */
+    }
 }

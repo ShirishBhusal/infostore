@@ -1,88 +1,160 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ccc;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background-image: url("https://www.sss-solutions.org/wp-content/uploads/2018/01/1116146294-login-page-background-image-112.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.login-container {
-    background-color: rgba(255, 255, 255, 0.8); /* White with 60% opacity */
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-form h2 {
-    margin-bottom: 20px;
     color: #333;
-    text-align: center; /* Center the h2 text */
 }
 
+/* Login Container */
+.login-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Adjusted for mobile */
+    max-width: 350px; /* Reduced max-width for a smaller container */
+    padding: 20px; /* Reduced padding for a more compact look */
+    text-align: center;
+    backdrop-filter: blur(10px); /* Blur effect for modern look */
+    margin: 20px; /* Added margin for better spacing */
+}
+
+/* Login Form */
+.login-form h2 {
+    margin-bottom: 15px; /* Reduced margin */
+    font-size: 22px; /* Slightly smaller font size */
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* Form Group */
 .form-group {
-    margin-bottom: 20px;
-    width: 100%;
+    margin-bottom: 15px; /* Reduced margin */
+    text-align: left;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 500;
     color: #555;
-    font-size: 16px;
 }
 
-.form-group input {
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 10px;
+    color: #777;
+}
+
+.input-icon input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
+    padding: 10px 10px 10px 35px; /* Reduced padding for a more compact look */
+    border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
-button {
-    width: 108%;
-    padding: 15px;
-    background-color: #28a745;
+.input-icon input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Show Password Checkbox */
+.show-password-container {
+    display: flex;
+    align-items: center; /* Align checkbox and label vertically */
+    margin-bottom: 15px; /* Add margin to separate from the next element */
+}
+
+.show-password-container input[type="checkbox"] {
+    margin-right: 10px; /* Add space between checkbox and label */
+}
+
+/* Login Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px; /* Reduced padding */
+    background: #007bff;
+    color: white;
     border: none;
     border-radius: 5px;
-    color: white;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 10px;
+    transition: background 0.3s ease;
 }
 
-button:hover {
-    background-color: #218838;
+button[type="submit"]:hover {
+    background: #0056b3;
 }
 
+/* Error Message */
+.error-msg {
+    color: #dc3545;
+    margin-top: 10px; /* Reduced margin */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Signup Link */
 .signup-link {
-    text-align: center;
-    margin-top: 15px;
+    margin-top: 15px; /* Reduced margin */
+    font-size: 14px;
+    color: #555;
 }
 
 .signup-link a {
     color: #007bff;
     text-decoration: none;
-    font-size: 16px;
+    font-weight: 500;
 }
 
 .signup-link a:hover {
     text-decoration: underline;
 }
 
-.error-msg {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 15px; /* Further reduced padding for mobile */
+        width: 90%; /* Adjusted for mobile */
+        margin: 10px; /* Smaller margin for mobile */
+    }
+
+    .login-form h2 {
+        font-size: 20px; /* Smaller font size for mobile */
+    }
+
+    .input-icon input {
+        padding: 8px 8px 8px 30px; /* Adjusted padding for mobile */
+    }
+
+    button[type="submit"] {
+        padding: 8px; /* Smaller padding for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .form-group label {
+        font-size: 13px; /* Smaller font size for mobile */
+    }
+
+    .signup-link {
+        font-size: 13px; /* Smaller font size for mobile */
+    }
 }

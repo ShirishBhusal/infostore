@@ -1,6 +1,6 @@
 function showPassword() {
-    var passwordInput = document.getElementById("password");
-    var showPasswordCheckbox = document.getElementById("show_password");
+    const passwordInput = document.getElementById("password");
+    const showPasswordCheckbox = document.getElementById("show_password");
 
     if (showPasswordCheckbox.checked) {
         passwordInput.type = "text";

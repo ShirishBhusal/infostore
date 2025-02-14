@@ -1,202 +1,289 @@
-
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
 }
 
 header {
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
-    padding: 0.1em 0;
+    padding: 20px;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
 }
 
 main {
-    margin: 2em;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Table Styles for Desktop */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1em;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-th, td {
-    padding: 1em;
+table th,
+table td {
+    padding: 12px 15px;
     text-align: left;
-    border: 1px solid #ddd;
+}
+
+table th {
+    background: #007bff;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+table tr {
     border-bottom: 1px solid #ddd;
 }
 
-th {
-    background-color: #f2f2f2;
+table tr:last-child {
+    border-bottom: none;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
+table tr:hover {
     background-color: #f1f1f1;
 }
 
+/* Actions Column */
+.actions {
+    text-align: center;
+}
+
+.actions i {
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.actions i.fa-trash {
+    color: #dc3545;
+}
+
+.actions i:hover {
+    color: #0056b3;
+}
+
+.actions i.fa-trash:hover {
+    color: #c82333;
+}
+
+/* Button Container */
 .button-container {
     text-align: center;
-    margin-top: 1em;
+    margin-top: 20px;
 }
 
 .button {
     display: inline-block;
-    padding: 0.55em 1em;
-    background-color: #4CAF50;
+    padding: 10px 20px;
+    background: #007bff;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    transition: background 0.3s ease;
 }
 
 .button:hover {
-    background-color: #45a049;
+    background: #0056b3;
 }
 
 .logout-btn {
-    background-color: #f44336;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #dc3545;
     color: white;
-    padding: 0.6em 1em;
-    border-radius: 5px;
     text-decoration: none;
-    font-weight: bold;
-    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    margin-top: 10px;
 }
 
 .logout-btn:hover {
-    background-color: #d32f2f;
+    background: #c82333;
 }
 
-
-/*pop up form css*/
-
-/* Styling for action icons */
-.actions .fa {
-    cursor: pointer;
-    margin: 0 5px;
-    font-size: 1.2em;
-}
-.actions .fa-edit {
-    color: #007bff;
-}
-.actions .fa-trash {
-    color: #dc3545;
+/* Mobile Styles (Hidden on Desktop) */
+.customer-card {
+    display: none; /* Hide cards by default */
 }
 
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-h2{
-    text-align: center;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto; /* Center the modal vertically and horizontally */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    position: relative;
-    top: -100px; /* Adjusted to move the modal up slightly */
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Form styles */
-form {
-    width: 100%;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.input-field {
-    width: calc(100% - 20px); /* Adjusted for padding */
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.input-field:focus {
-    outline: none;
-    border-color: #007bff; /* Focus color */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.row > div {
-    width: 48%;
-}
-
-.btn-submit {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-submit:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive adjustments */
+/* Mobile View (Screen width <= 768px) */
 @media (max-width: 768px) {
-    .modal-content {
-        width: 90%;
+    table {
+        display: none; /* Hide the table on mobile */
+    }
+
+    .customer-card {
+        display: block; /* Show cards on mobile */
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .customer-card div {
+        margin-bottom: 10px;
+    }
+
+    .customer-card div:last-child {
+        margin-bottom: 0;
+    }
+
+    .customer-card .label {
+        font-weight: 600;
+        color: #007bff;
+    }
+
+    .customer-card .actions {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .customer-card .actions i {
+        margin: 0 5px;
     }
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto; /* Allow scrolling on mobile */
+}
 
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 20px; /* Add margin for better spacing on mobile */
+}
 
+.modal-content h2 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 24px;
+    font-weight: 600;
+}
 
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #007bff;
+}
+
+/* Form Styles in Modal */
+#editCustomerForm .row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+#editCustomerForm .row div {
+    flex: 1;
+}
+
+#editCustomerForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+#editCustomerForm .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+#editCustomerForm .input-field:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+#editCustomerForm .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#editCustomerForm .btn-submit:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design for Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Smaller width for mobile */
+        max-width: 90%; /* Ensure it doesn't exceed screen width */
+        padding: 15px;
+        margin: 10px; /* Smaller margin for mobile */
+    }
+
+    #editCustomerForm .row {
+        flex-direction: column; /* Stack form fields vertically on mobile */
+    }
+
+    #editCustomerForm .input-field {
+        font-size: 16px; /* Slightly larger font for better readability */
+    }
+
+    #editCustomerForm .btn-submit {
+        padding: 14px; /* Larger button for easier tapping */
+    }
+}

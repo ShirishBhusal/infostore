@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="login-container">
@@ -12,14 +14,23 @@
             <h2>Login</h2>
             <div class="form-group">
                 <label for="username">Email</label>
-                <input type="text" id="username" name="username" required>
+                <div class="input-icon">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" id="username" name="username" placeholder="Enter your email" required>
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <div class="input-icon">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
             </div>
-            <input type="checkbox" id="show_password" onclick="showPassword()"> <label for="show_password">Show Password</label>
-            <button type="submit">Login</button>    
+            <div class="show-password-container">
+                <input type="checkbox" id="show_password" onclick="showPassword()">
+                <label for="show_password">Show Password</label>
+            </div>
+            <button type="submit">Login</button>
             <div id="error-msg" class="error-msg"></div>
             <div class="signup-link">
                 <p>Don't have an account? <a href="/signup">Create an account</a></p>
